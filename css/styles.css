@@ -214,6 +214,9 @@ ul { list-style: none; padding: 0; }
 }
 .hero__free svg { display: block; flex: none; transform: translateY(10px); }
 .hero__free .script { font-size: clamp(44px, 4vw, 64px); white-space: nowrap; }
+/* Надпись не поместилась рядом с кнопкой — ставим под ней, стрелкой вверх */
+.hero__free.is-wrapped { margin-left: 0; transform: rotate(-6deg); }
+.hero__free.is-wrapped svg { transform: scaleY(-1) translateY(6px); }
 .hero__media { flex: 1.15 1 520px; min-width: 0; position: relative; z-index: 1; margin: -4% 0 -6% 0; }
 .hero__img { position: relative; width: 126%; left: 50%; transform: translateX(-50%); }
 .hero__img img { position: relative; width: 100%; height: auto; }

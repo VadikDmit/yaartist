@@ -278,6 +278,17 @@
     mio.observe(map);
   } else { selectAddr(0); }
 
+  /* ---------- Hero: «бесплатно!» рядом с кнопкой или под ней ---------- */
+  var heroBtn = $('.hero__actions .btn');
+  var heroFree = $('.hero__free');
+  function placeFree() {
+    heroFree.classList.remove('is-wrapped');
+    heroFree.classList.toggle('is-wrapped', heroFree.offsetTop > heroBtn.offsetTop + heroBtn.offsetHeight / 2);
+  }
+  window.addEventListener('resize', placeFree);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeFree);
+  placeFree();
+
   /* ---------- Reveal ---------- */
   var reveal = $$('[data-reveal]');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
