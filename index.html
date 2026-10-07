@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ЯАртист — театральная студия для детей и подростков в Ижевске</title>
+  <meta name="description" content="Театральная студия «ЯАртист» в Ижевске для детей и подростков от 5 до 18 лет. Актёрское мастерство, сценическая речь, движение и настоящие спектакли. Первое занятие — бесплатно.">
+  <meta name="theme-color" content="#FFF21B">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ЯАртист — театральная студия в Ижевске">
+  <meta property="og:description" content="Ярко. Смело. Свободно. Театральная студия для детей и подростков от 5 до 18 лет. Первое занятие — бесплатно.">
+  <meta property="og:image" content="assets/img/hero-1800.webp">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Gilroy-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Anjhay.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="sr-only" href="#about">Перейти к содержанию</a>
+
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#top" class="header__logo" aria-label="ЯАртист — на главную"><img src="assets/img/logo-black.svg" alt="ЯАртист" width="140" height="48"></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О студии</a>
+      <a href="#groups">Группы</a>
+      <a href="#teachers">Преподаватели</a>
+      <a href="#shows">Спектакли</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header__right">
+      <a href="tel:+70000000000" class="header__phone">+7 (000) 000-00-00</a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-controls="menu" aria-expanded="false" data-menu-open>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Mobile menu ============ -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Меню" aria-hidden="true">
+  <div class="menu__top">
+    <img src="assets/img/logo-black.svg" alt="ЯАртист" width="128" height="44">
+    <button class="menu__close" type="button" aria-label="Закрыть меню" data-menu-close>✕</button>
+  </div>
+  <nav class="menu__nav" aria-label="Мобильная навигация">
+    <a href="#about" data-menu-close>О студии</a>
+    <a href="#groups" data-menu-close>Группы</a>
+    <a href="#teachers" data-menu-close>Преподаватели</a>
+    <a href="#shows" data-menu-close>Спектакли</a>
+    <a href="#faq" data-menu-close>FAQ</a>
+    <a href="#contacts" data-menu-close>Контакты</a>
+  </nav>
+  <div class="menu__bottom">
+    <a href="tel:+70000000000" class="menu__phone">+7 (000) 000-00-00</a>
+    <a href="#signup" class="btn btn--black">Записаться на пробное</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+  <div class="container hero__inner">
+    <div class="doodles" aria-hidden="true">
+      <span class="doodle star" style="left:44%;top:4%;width:26px;height:26px;background:#000;--dur:6s"></span>
+      <span class="doodle star" style="left:93%;top:62%;width:18px;height:18px;background:#000;--dur:7s;--delay:1.2s"></span>
+      <span class="doodle star" style="left:42%;top:30%;width:14px;height:14px;background:#FE6BD3;--dur:5s;--delay:.6s"></span>
+      <span class="doodle doodle--ring" style="left:88%;top:2%;width:34px;height:34px;--dur:8s;--delay:.3s"></span>
+      <span class="doodle doodle--ring" style="left:12%;top:80%;width:18px;height:18px;--dur:6s;--delay:1.6s"></span>
+    </div>
+    <div class="hero__row">
+      <div class="hero__content">
+        <h1 class="hero__title" aria-label="Ярко. Смело. Свободно.">
+          <span data-reveal style="--d:.05s">ЯРКО.</span>
+          <span data-reveal style="--d:.15s">СМЕЛО.</span>
+          <span data-reveal style="--d:.25s">СВОБОДНО.</span>
+        </h1>
+        <p class="hero__text" data-reveal style="--d:.35s">Театральная студия для детей и подростков от 5 до 18 лет.</p>
+        <div class="hero__actions" data-reveal style="--d:.45s">
+          <a href="#signup" class="btn btn--black btn--lg">Записаться на пробное занятие</a>
+          <div class="hero__free">
+            <svg width="64" height="34" viewBox="0 0 64 34" fill="none" aria-hidden="true"><path d="M62 8 C 44 2, 22 6, 6 22" stroke="#FE6BD3" stroke-width="3" stroke-linecap="round"/><path d="M3 10 L6 23 L19 21" stroke="#FE6BD3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="script">бесплатно!</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__media" data-reveal="scale" style="--d:.2s">
+        <div class="hero__img">
+          <div class="hero__ring" aria-hidden="true"></div>
+          <img src="assets/img/hero-1800.webp"
+               srcset="assets/img/hero-1000.webp 1000w, assets/img/hero-1800.webp 1800w"
+               sizes="(max-width: 767px) 118vw, 70vw"
+               width="1800" height="1403" alt="Участницы театральной студии ЯАртист" fetchpriority="high">
+        </div>
+        <div class="hero__tagline"><span class="script">здесь можно быть собой</span></div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave wave--hero" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 52 C 260 30, 520 22, 760 40 S 1200 70, 1440 30 L1440 90 L0 90 Z" fill="#fff"/></svg>
+</section>
+
+<!-- ============ Ages / About ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="grid3 about__head">
+      <h2 class="h2 span2" data-reveal>Сцена найдётся<br><span class="scribble">для каждого<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 70 4, 160 4, 297 10" stroke="#FE6BD3" stroke-width="5" stroke-linecap="round" fill="none"/></svg></span></h2>
+      <div class="about__note" data-reveal style="--d:.1s">
+        <div class="about__hand">
+          <span class="script">твой выход</span>
+          <svg width="28" height="44" viewBox="0 0 34 54" fill="none" aria-hidden="true"><path d="M4 4 C 22 12, 28 28, 24 50" stroke="#FE6BD3" stroke-width="2.5" stroke-linecap="round"/><path d="M14 42 L24 51 L31 40" stroke="#FE6BD3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="lead">Каждая группа — свой возраст, свои задачи и свой спектакль.</p>
+      </div>
+    </div>
+
+    <div class="grid3 ages">
+      <div class="age" data-reveal>
+        <div class="age__num"><b>5–9</b><span>лет</span></div>
+        <div class="age__label">ИГРАЕМ</div>
+        <p>Театр через игру, движение и первые роли.</p>
+      </div>
+      <div class="age" data-reveal style="--d:.1s">
+        <div class="age__num"><b>10–13</b><span>лет</span></div>
+        <div class="age__label">РАСКРЫВАЕМСЯ</div>
+        <p>Развиваем актёрские навыки, речь, пластику и уверенность.</p>
+      </div>
+      <div class="age" data-reveal style="--d:.2s">
+        <div class="age__num"><b>14–18</b><span>лет</span></div>
+        <div class="age__label">СОЗДАЁМ</div>
+        <p>Работаем с ролью, сценической речью, движением и создаём спектакль вместе.</p>
+      </div>
+    </div>
+
+    <div class="eyebrow eyebrow--plain">В КАЖДОЙ ГРУППЕ</div>
+    <div class="grid3 features">
+      <article class="feature feature--outline" data-reveal>
+        <div class="ph ph--top" style="border-radius:20px 20px 60px 20px;background:#FFF21B"><img src="assets/img/card-kids-5-9.jpg" alt="Дети на занятии в студии" loading="lazy"></div>
+        <div class="feature__body">
+          <div class="feature__title"><h3>Театр</h3></div>
+          <p>Первое знакомство со сценой и актёрским мастерством.</p>
+        </div>
+      </article>
+      <article class="feature feature--yellow" data-reveal style="--d:.1s">
+        <div class="ph ph--top" style="border-radius:60px 20px 20px 20px;background:#000"><img src="assets/img/card-intensive.jpg" alt="Участники студии на интенсиве" loading="lazy"></div>
+        <div class="feature__body">
+          <div class="feature__title"><h3>Развитие</h3></div>
+          <p>Речь, движение, пластика, уверенность и работа в команде.</p>
+        </div>
+      </article>
+      <article class="feature feature--dark" data-reveal style="--d:.2s">
+        <div class="ph ph--top" style="border-radius:20px 60px 20px 20px;background:#222"><img src="assets/img/card-sunday.jpg" alt="Участники студии на сцене после спектакля" loading="lazy"></div>
+        <div class="feature__body">
+          <div class="feature__title"><h3 class="yellow">Спектакль</h3><span class="star" style="width:22px;height:22px;background:#FE6BD3" aria-hidden="true"></span></div>
+          <p>Итог курса — настоящая театральная постановка.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="about__foot" data-reveal>
+      <p>Первое занятие — <span class="mark">бесплатно</span></p>
+      <a href="#signup" class="btn btn--outline">Записаться на пробное занятие</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Why ============ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="eyebrow eyebrow--yellow">ПОЧЕМУ «ЯАРТИСТ»</div>
+    <div class="split-head">
+      <h2 class="h2" data-reveal>Театр меняет не только то, как ты выходишь <span class="yellow">на сцену.</span></h2>
+      <p class="lead" data-reveal style="--d:.1s">Он помогает увереннее чувствовать себя и за её пределами.</p>
+    </div>
+    <div class="grid3 why__grid">
+      <article class="wcard wcard--big span2" data-reveal>
+        <span class="wcard__n">01</span>
+        <span class="wcard__hand script hide-mobile" aria-hidden="true">выходи на сцену</span>
+        <div style="max-width:480px">
+          <h3>Уверенность в себе</h3>
+          <p>Учимся свободно проявлять себя и не бояться внимания.</p>
+        </div>
+      </article>
+      <div class="wcard--photo ph" data-reveal style="--d:.1s">
+        <img src="assets/img/card-intensive.jpg" alt="Театральный интенсив студии" loading="lazy">
+        <span class="tag">Театральный интенсив</span>
+      </div>
+      <article class="wcard wcard--line" data-reveal>
+        <span class="wcard__n">02</span>
+        <div><h3>Выразительная речь</h3><p>Работаем с голосом, дикцией, интонацией и сценической речью.</p></div>
+      </article>
+      <article class="wcard wcard--white" data-reveal style="--d:.1s">
+        <span class="wcard__n">03</span>
+        <div><h3>Умение работать в команде</h3><p>Театр учит слышать партнёра, доверять и создавать вместе.</p></div>
+      </article>
+      <article class="wcard wcard--line wcard--r4" data-reveal style="--d:.2s">
+        <span class="wcard__n">04</span>
+        <div><h3>Свобода самовыражения</h3><p>Учимся понимать свои эмоции и превращать их в образ.</p></div>
+      </article>
+      <article class="wcard wcard--pink span2" data-reveal>
+        <div class="wcard__col">
+          <span class="wcard__n">05</span>
+          <div><h3>Сценический опыт</h3><p>От первых упражнений до настоящих спектаклей.</p></div>
+        </div>
+        <div class="wcard__circle ph"><img src="assets/img/card-sunday.jpg" alt="Участники студии на сцене" loading="lazy"></div>
+      </article>
+      <article class="wcard wcard--yline" data-reveal style="--d:.1s">
+        <span class="wcard__n">06</span>
+        <span class="star doodle" style="right:28px;top:30px;width:26px;height:26px;background:#FE6BD3;--dur:6s" aria-hidden="true"></span>
+        <span class="star doodle" style="right:66px;top:70px;width:14px;height:14px;background:#FFF21B;--dur:7s;--delay:1s" aria-hidden="true"></span>
+        <div><h3>Любовь к искусству</h3><p>Знакомимся с театром через практику, игру и творчество.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Learn ============ -->
+<section class="learn" id="learn">
+  <div class="container">
+    <div class="eyebrow">ЧЕМУ УЧИМСЯ</div>
+    <div class="learn__head">
+      <h2 class="h2" data-reveal>Не просто играем в театр. Учимся быть <span class="scribble">артистами.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 70 4, 160 4, 297 10" stroke="#FE6BD3" stroke-width="5" stroke-linecap="round" fill="none"/></svg></span></h2>
+      <span class="script" data-reveal style="--d:.2s">это интересно</span>
+    </div>
+    <div class="dirs">
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">01</span><span class="dir__t">Актёрское мастерство</span><span class="dir__a" aria-hidden="true">→</span></a>
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">02</span><span class="dir__t">Сценическая речь</span><span class="dir__a" aria-hidden="true">→</span></a>
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">03</span><span class="dir__t">Сценическое движение</span><span class="dir__a" aria-hidden="true">→</span></a>
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">04</span><span class="dir__t">Сценический бой</span><span class="dir__a" aria-hidden="true">→</span></a>
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">05</span><span class="dir__t">Грим</span><span class="dir__a" aria-hidden="true">→</span></a>
+      <a href="#groups" class="dir" data-reveal><span class="dir__n">06</span><span class="dir__t">Создание сценария</span><span class="dir__a" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Groups ============ -->
+<section class="groups" id="groups">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__group"><span>Актёрское мастерство</span><i>★</i><span>Сценическая речь</span><i>★</i><span>Сценическое движение</span><i>★</i><span>Сценический бой</span><i>★</i><span>Грим</span><i>★</i><span>Создание сценария</span><i>★</i></div>
+      <div class="marquee__group"><span>Актёрское мастерство</span><i>★</i><span>Сценическая речь</span><i>★</i><span>Сценическое движение</span><i>★</i><span>Сценический бой</span><i>★</i><span>Грим</span><i>★</i><span>Создание сценария</span><i>★</i></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="eyebrow eyebrow--dark">НАШИ ГРУППЫ</div>
+    <h2 class="h2" data-reveal>Выбирайте свою сцену</h2>
+    <div class="grid3 groups__grid">
+      <article class="gcard" data-reveal>
+        <div class="ph ph--top" style="border-radius:20px 20px 64px 20px;background:#FFF21B"><img src="assets/img/card-kids-5-9.jpg" alt="Группа 5–9 лет" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Группа 5–9 лет</h3>
+        <p>Отдельная группа для детей от 5 до 9 лет.</p>
+        <div class="gcard__price"><b>5 500 ₽</b></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Группа 5–9 лет" class="btn btn--black">Узнать подробнее</a></div>
+      </article>
+      <article class="gcard" data-reveal style="--d:.1s">
+        <div class="ph" style="border-radius:20px 64px 20px 20px;background:#000"><img src="assets/img/group-10-13.jpg" alt="Группа 10–13 лет" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Группа 10–13 лет</h3>
+        <p>Актёрское мастерство, сценическая речь, движение и работа в команде.</p>
+        <div class="gcard__price"><b>6 000 ₽</b></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Группа 10–13 лет" class="btn btn--black">Узнать подробнее</a></div>
+      </article>
+      <article class="gcard" data-reveal style="--d:.2s">
+        <div class="ph" style="border-radius:64px 20px 20px 20px;background:#000"><img src="assets/img/group-14-18.jpg" alt="Группа 14–18 лет" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Группа 14–18 лет</h3>
+        <p>Актёрское мастерство, сценическая речь, пластика и работа над спектаклем.</p>
+        <div class="gcard__price"><b>6 000 ₽</b></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Группа 14–18 лет" class="btn btn--black">Узнать подробнее</a></div>
+      </article>
+      <article class="gcard" data-reveal>
+        <div class="ph ph--top" style="border-radius:20px 64px 20px 20px;background:#000"><img src="assets/img/card-sunday.jpg" alt="Группы по воскресеньям" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Группы по воскресеньям</h3>
+        <p>Занятия в группе по воскресеньям.</p>
+        <div class="gcard__price"><b>4 000 ₽</b></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Группы по воскресеньям" class="btn btn--black">Узнать подробнее</a></div>
+      </article>
+      <article class="gcard gcard--outline" data-reveal style="--d:.1s">
+        <div class="ph" style="border-radius:20px 20px 64px 20px;background:#fff"><img src="assets/img/group-masterclass.jpg" alt="Мастер-классы" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Мастер-классы</h3>
+        <p>Для обучающихся, организаций и всех, кто хочет попробовать себя в театре.</p>
+        <div class="gcard__price"><span><b>от 450 ₽</b><small>с человека</small></span></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Мастер-классы" class="btn btn--black">Узнать подробнее</a></div>
+      </article>
+      <article class="gcard gcard--dark" data-reveal style="--d:.2s">
+        <div class="ph ph--top" style="border-radius:64px 20px 20px 20px;background:#FFF21B"><img src="assets/img/card-intensive.jpg" alt="Театральный интенсив" loading="lazy"></div>
+        <div class="gcard__sp" aria-hidden="true"></div>
+        <h3>Театральный интенсив</h3>
+        <p>Интенсивный формат занятий в студии.</p>
+        <div class="gcard__price"><b>22 500 ₽</b></div>
+        <div class="gcard__btn"><a href="#signup" data-group="Театральный интенсив" class="btn btn--yellow">Узнать подробнее</a></div>
+      </article>
+    </div>
+    <div class="groups__help" data-reveal>
+      <p>Не знаете, какая группа подойдёт?</p>
+      <a href="#signup" data-group="Пока не знаю" class="btn btn--black">Поможем выбрать →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Teachers ============ -->
+<section class="teachers" id="teachers">
+  <div class="container">
+    <div class="eyebrow">ПРЕПОДАВАТЕЛИ</div>
+    <div class="split-head">
+      <h2 class="h2" data-reveal>Люди, которые знают сцену изнутри</h2>
+      <p class="lead" data-reveal style="--d:.1s">Актёры и режиссёры театров Удмуртии, выпускники театральных вузов.</p>
+    </div>
+    <div class="teachers__grid" id="teachersGrid"></div>
+  </div>
+</section>
+
+<!-- ============ Shows ============ -->
+<section class="shows" id="shows">
+  <div class="container">
+    <div class="eyebrow eyebrow--yellow">СПЕКТАКЛИ</div>
+    <div class="split-head">
+      <h2 class="h2" data-reveal>От упражнения — <span class="yellow">к настоящей сцене</span></h2>
+      <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="link-u">Все фото в VK →</a>
+    </div>
+    <div class="shows__row">
+      <article class="show-main" data-reveal>
+        <div class="ph">
+          <img src="assets/img/feed-backstage.jpg" alt="Спектакль студии ЯАртист" loading="lazy">
+          <span class="badge">Премьера</span>
+        </div>
+        <div class="show-main__foot">
+          <div>
+            <span class="pill-dashed">Дата · площадка — уточнить</span>
+            <h3>Название спектакля</h3>
+          </div>
+          <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="btn btn--yellow">Смотреть фото →</a>
+        </div>
+      </article>
+      <div class="shows__side">
+        <article class="show" data-reveal style="--d:.1s">
+          <div class="ph ph--top"><img src="assets/img/card-sunday.jpg" alt="Участники студии после спектакля" loading="lazy"></div>
+          <div class="show__foot">
+            <div><span class="show__date">ДАТА — УТОЧНИТЬ</span><h3>Название спектакля</h3></div>
+            <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="show__go" aria-label="Смотреть фото">→</a>
+          </div>
+        </article>
+        <article class="show show--wide" data-reveal style="--d:.2s">
+          <div class="ph"><img src="assets/img/feed-girl.jpg" alt="Фото постановки" loading="lazy"></div>
+          <div class="show__foot">
+            <div><span class="show__date">ДАТА — УТОЧНИТЬ</span><h3>Название спектакля</h3></div>
+            <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="show__go" aria-label="Смотреть фото">→</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Life ============ -->
+<section class="life" id="life">
+  <div class="container">
+    <div class="eyebrow eyebrow--dark">ЖИЗНЬ СТУДИИ</div>
+    <h2 class="h2" data-reveal>Здесь происходит больше, чем просто занятия</h2>
+    <div class="collage" id="collage">
+      <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="collage__vk" data-reveal style="--d:.3s">
+        <span class="script">ещё больше</span>
+        <b>Фото и видео — в нашем VK →</b>
+      </a>
+    </div>
+    <div class="strip" id="strip"></div>
+    <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="btn btn--black life__vk-mobile">Фото и видео — в нашем VK →</a>
+  </div>
+</section>
+
+<!-- ============ Reviews ============ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="eyebrow">ОТЗЫВЫ</div>
+    <div class="split-head">
+      <h2 class="h2" data-reveal>А вот что говорят родители и ученики</h2>
+      <div class="rating" data-reveal style="--d:.1s">
+        <b>5,0</b>
+        <div><span aria-label="5 из 5">★★★★★</span><span>рейтинг сообщества во ВКонтакте</span></div>
+      </div>
+    </div>
+    <div class="slider" id="reviewsSlider" tabindex="0" aria-label="Отзывы">
+      <!-- Тексты отзывов вставить дословно из VK -->
+      <article class="review" data-reveal>
+        <span class="review__q" aria-hidden="true">“</span>
+        <p>Текст реального отзыва из VK — вставить дословно, без сокращений и правок.</p>
+        <div class="review__author"><span class="review__ava">?</span><div><b>Имя автора</b><small>Родитель / ученик — уточнить</small></div></div>
+      </article>
+      <article class="review" data-reveal style="--d:.1s">
+        <span class="review__q" aria-hidden="true">“</span>
+        <p>Текст реального отзыва из VK — вставить дословно, без сокращений и правок.</p>
+        <div class="review__author"><span class="review__ava">?</span><div><b>Имя автора</b><small>Родитель / ученик — уточнить</small></div></div>
+      </article>
+      <article class="review" data-reveal style="--d:.2s">
+        <span class="review__q" aria-hidden="true">“</span>
+        <p>Текст реального отзыва из VK — вставить дословно, без сокращений и правок.</p>
+        <div class="review__author"><span class="review__ava">?</span><div><b>Имя автора</b><small>Родитель / ученик — уточнить</small></div></div>
+      </article>
+      <article class="review" data-reveal style="--d:.3s">
+        <span class="review__q" aria-hidden="true">“</span>
+        <p>Текст реального отзыва из VK — вставить дословно, без сокращений и правок.</p>
+        <div class="review__author"><span class="review__ava">?</span><div><b>Имя автора</b><small>Родитель / ученик — уточнить</small></div></div>
+      </article>
+    </div>
+    <div class="reviews__nav">
+      <div>
+        <button class="round-btn" type="button" aria-label="Назад" data-slide="-1">←</button>
+        <button class="round-btn round-btn--dark" type="button" aria-label="Вперёд" data-slide="1">→</button>
+      </div>
+      <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener" class="link-u">Все отзывы →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ How ============ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="eyebrow eyebrow--yellow">КАК ПОПАСТЬ В «ЯАРТИСТ»</div>
+    <h2 class="h2" data-reveal>Начать проще, чем кажется</h2>
+    <div class="steps">
+      <div class="step" data-reveal><b>01</b><h3>Оставляете заявку</h3></div>
+      <div class="step step--pink" data-reveal style="--d:.1s"><b>02</b><h3>Приходите на <span class="mark">бесплатное</span> пробное занятие</h3></div>
+      <div class="step" data-reveal style="--d:.2s"><b>03</b><h3>Знакомитесь с преподавателем и группой</h3></div>
+      <div class="step" data-reveal style="--d:.3s"><b>04</b><h3>Решаете, хотите ли продолжить</h3></div>
+    </div>
+    <div class="how__cta" data-reveal>
+      <a href="#signup" class="btn btn--yellow">Записаться на пробное занятие →</a>
+      <span>Первое занятие — бесплатно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Big CTA ============ -->
+<section class="cta" id="cta">
+  <svg class="wave wave--cta" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 L1440 0 L1440 38 C 1180 92, 900 8, 720 46 S 240 96, 0 34 Z" fill="#000"/></svg>
+  <span class="doodle star" style="left:6%;bottom:12%;width:22px;height:22px;background:#000;--dur:7s" aria-hidden="true"></span>
+  <span class="doodle doodle--ring" style="right:4%;top:22%;width:40px;height:40px;--dur:8s;--delay:.8s" aria-hidden="true"></span>
+  <div class="container cta__inner">
+    <div class="cta__content">
+      <h2 data-reveal>А ты готов выйти на сцену?</h2>
+      <p class="cta__free" data-reveal style="--d:.1s">Первое занятие — бесплатно.</p>
+      <div class="cta__actions" data-reveal style="--d:.2s">
+        <a href="#signup" class="btn btn--black">Записаться на пробное занятие →</a>
+        <div class="hand-arrow">
+          <svg width="64" height="36" viewBox="0 0 74 40" fill="none" aria-hidden="true"><path d="M72 8 C 52 2, 26 6, 8 30" stroke="#FE6BD3" stroke-width="3" stroke-linecap="round"/><path d="M4 18 L8 31 L20 27" stroke="#FE6BD3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="script">твой выход!</span>
+        </div>
+      </div>
+    </div>
+    <div class="cta__media" data-reveal="scale" style="--d:.15s">
+      <div class="cta__outline" aria-hidden="true"></div>
+      <div class="cta__photo"><img src="assets/img/feed-girl.jpg" alt="Участница студии" loading="lazy"></div>
+      <div class="sticker" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="ya-circ" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><text><textPath href="#ya-circ">ПЕРВОЕ ЗАНЯТИЕ · БЕСПЛАТНО · </textPath></text></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container faq__inner">
+    <div class="faq__aside">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="h2" data-reveal>Частые вопросы</h2>
+      <p>Не нашли ответ? Напишите нам — подскажем.</p>
+      <a href="https://vk.me/yartist_izh" target="_blank" rel="noopener" class="btn btn--outline">Написать в VK</a>
+    </div>
+    <div class="faq__list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ Places ============ -->
+<section class="places" id="places">
+  <div class="container">
+    <div class="places__head">
+      <div>
+        <div class="eyebrow">ГДЕ ПРОХОДЯТ ЗАНЯТИЯ</div>
+        <h2 data-reveal>Мы рядом</h2>
+      </div>
+      <span class="pill-dashed">Актуальность адресов — подтвердить перед публикацией</span>
+    </div>
+    <div class="places__row">
+      <div class="addrs" id="addrs"></div>
+      <div class="map" data-reveal="fade">
+        <iframe id="map" title="Карта" loading="lazy" src="about:blank" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contacts ============ -->
+<section class="contacts" id="contacts">
+  <div class="container contacts__inner">
+    <div class="contacts__content">
+      <h2 data-reveal>Остались <span class="yellow">вопросы?</span></h2>
+      <p data-reveal style="--d:.1s">Напишите нам — расскажем о группах, расписании и ближайшем пробном занятии.</p>
+      <div class="contacts__btns" data-reveal style="--d:.2s">
+        <a href="https://vk.me/yartist_izh" target="_blank" rel="noopener" class="btn btn--yellow">Написать в VK</a>
+        <a href="tel:+70000000000" class="btn btn--outline-light">Позвонить</a>
+        <a href="#signup" class="btn btn--pink">Записаться на занятие</a>
+      </div>
+    </div>
+    <div class="sticker" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="ya-circ2" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><text><textPath href="#ya-circ2">ПЕРВОЕ ЗАНЯТИЕ · БЕСПЛАТНО · </textPath></text></svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <a href="#top" class="footer__logo" aria-label="ЯАртист"><span class="script">Я</span><b>Артист</b></a>
+        <p>Театральная студия для детей и подростков от 5 до 18 лет. Ижевск.</p>
+      </div>
+      <div class="footer__col">
+        <span>НАВИГАЦИЯ</span>
+        <a href="#about">О студии</a>
+        <a href="#groups">Группы</a>
+        <a href="#teachers">Преподаватели</a>
+        <a href="#shows">Спектакли</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="footer__col">
+        <span>КОНТАКТЫ</span>
+        <a href="tel:+70000000000" style="font-weight:700">+7 (000) 000-00-00</a>
+        <a href="https://vk.ru/yartist_izh" target="_blank" rel="noopener">VK · vk.ru/yartist_izh</a>
+      </div>
+      <div class="footer__col">
+        <span>АДРЕСА</span>
+        <span>Ижевск, Красная улица, 131</span>
+        <span>Ижевск, проспект Калашникова, 27</span>
+        <span>Ижевск, ул. Клубная, 24</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© ЯАртист, <span id="year">2026</span></span>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Teacher modal ============ -->
+<div class="modal tmodal" id="teacherModal" role="dialog" aria-modal="true" aria-labelledby="tmName" aria-hidden="true">
+  <div class="modal__box">
+    <button class="modal__close" type="button" aria-label="Закрыть" data-close>✕</button>
+    <div class="tmodal__media">
+      <div class="tmodal__plate"></div>
+      <div class="tmodal__photo" id="tmPhoto"></div>
+    </div>
+    <div class="tmodal__body">
+      <h3 id="tmName"></h3>
+      <p class="tmodal__role"><span id="tmRole"></span></p>
+      <ul class="facts" id="tmFacts"></ul>
+      <div class="tmodal__nav">
+        <button class="round-btn" type="button" aria-label="Предыдущий" data-step="-1">←</button>
+        <button class="round-btn round-btn--dark" type="button" aria-label="Следующий" data-step="1">→</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Signup modal ============ -->
+<div class="modal smodal" id="signup" role="dialog" aria-modal="true" aria-labelledby="suTitle" aria-hidden="true">
+  <div class="modal__box">
+    <button class="modal__close" type="button" aria-label="Закрыть" data-close>✕</button>
+    <div data-state="form">
+      <div class="smodal__eyebrow">ЗАПИСЬ НА ПРОБНОЕ ЗАНЯТИЕ</div>
+      <h3 id="suTitle">Первое занятие — бесплатно</h3>
+      <span class="smodal__try script">попробуй!</span>
+      <form class="form" id="signupForm" novalidate>
+        <label class="sr-only" for="fName">Имя</label>
+        <input id="fName" name="name" placeholder="Имя" autocomplete="name" required>
+        <label class="sr-only" for="fAge">Возраст ребёнка</label>
+        <input id="fAge" name="age" placeholder="Возраст ребёнка" inputmode="numeric">
+        <label class="sr-only" for="fPhone">Телефон</label>
+        <input id="fPhone" name="phone" type="tel" placeholder="Телефон" autocomplete="tel" required>
+        <label class="sr-only" for="fGroup">Группа или направление</label>
+        <select id="fGroup" name="group">
+          <option value="">Группа или направление</option>
+          <option value="Группа 5–9 лет">Группа 5–9 лет</option>
+          <option value="Группа 10–13 лет">Группа 10–13 лет</option>
+          <option value="Группа 14–18 лет">Группа 14–18 лет</option>
+          <option value="Группы по воскресеньям">Группы по воскресеньям</option>
+          <option value="Мастер-классы">Мастер-классы</option>
+          <option value="Театральный интенсив">Театральный интенсив</option>
+          <option value="Пока не знаю">Пока не знаю — помогите выбрать</option>
+        </select>
+        <p class="form__error" id="formError" role="alert">Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в VK.</p>
+        <button type="submit" class="btn btn--black">Записаться</button>
+        <p class="form__note">Нажимая «Записаться», вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
+      </form>
+    </div>
+    <div class="smodal__sent" data-state="sent" hidden>
+      <span class="script">ура!</span>
+      <h3>Заявка отправлена</h3>
+      <p>Мы свяжемся с вами, чтобы подобрать время пробного занятия.</p>
+      <button type="button" class="btn btn--black" data-close>Хорошо</button>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-cta" id="stickyCta"><a href="#signup">Записаться на пробное</a></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
