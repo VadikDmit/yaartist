@@ -470,7 +470,7 @@ ul { list-style: none; padding: 0; }
 .rating div span:first-child { font-size: 20px; letter-spacing: .12em; }
 .rating div span:last-child { font-size: 14px; font-weight: 600; max-width: 160px; line-height: 1.3; }
 .slider {
-  display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  display: flex; gap: 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none;
   margin-top: clamp(40px, 5vw, 64px); overscroll-behavior-x: contain;
 }
 .slider::-webkit-scrollbar { display: none; }
@@ -734,7 +734,7 @@ ul { list-style: none; padding: 0; }
   .groups__grid { row-gap: 16px; }
 
   .collage { display: none; }
-  .strip { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 20px; margin: 0 calc(var(--gutter) * -1); padding-left: var(--gutter); padding-right: var(--gutter); scroll-padding-left: var(--gutter); }
+  .strip { display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 20px; margin: 0 calc(var(--gutter) * -1); padding-left: var(--gutter); padding-right: var(--gutter); scroll-padding-left: var(--gutter); }
   .strip::-webkit-scrollbar { display: none; }
   .strip__item { position: relative; flex: none; height: 300px; scroll-snap-align: start; }
   .strip__item .collage__img { box-shadow: none; }
