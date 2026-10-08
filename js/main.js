@@ -178,16 +178,17 @@
   /* ---------- Преподаватели ---------- */
   var grid = $('#teachersGrid');
   var initials = function (t) { return t.first[0] + t.last[0]; };
+  var fullName = function (t) { return t.last + ' ' + t.first + ' ' + t.patr; };
   var photoHTML = function (t, lazy) {
     return t.photo
-      ? '<img src="' + t.photo + '" alt="' + esc(t.first + ' ' + t.last) + '"' + (lazy ? ' loading="lazy"' : '') + '>'
+      ? '<img src="' + t.photo + '" alt="' + esc(fullName(t)) + '"' + (lazy ? ' loading="lazy"' : '') + '>'
       : '<span class="initials" aria-hidden="true">' + esc(initials(t)) + '</span>';
   };
   grid.innerHTML = TEACHERS.map(function (t, i) {
     var more = Math.max(0, t.facts.length - 2);
     return '<button type="button" class="tcard" data-teacher="' + i + '" data-reveal style="--d:' + (i % 3) * 0.08 + 's">' +
       '<div class="tcard__media"><div class="tcard__plate"></div><div class="tcard__photo">' + photoHTML(t, true) + '</div></div>' +
-      '<h3>' + esc(t.first + ' ' + t.last) + '</h3>' +
+      '<h3>' + esc(fullName(t)) + '</h3>' +
       '<p class="tcard__role">' + esc(t.role) + '</p>' +
       '<ul class="facts">' + t.facts.slice(0, 2).map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' +
       '<span class="tcard__more">' + (more ? 'Подробнее · ещё ' + more : 'Подробнее') + ' +</span>' +
@@ -200,7 +201,7 @@
     var t = TEACHERS[i];
     current = i;
     $('#tmPhoto').innerHTML = photoHTML(t, false);
-    $('#tmName').innerHTML = esc(t.first + ' ' + t.last) + '<small>' + esc(t.last + ' ' + t.first + ' ' + t.patr) + '</small>';
+    $('#tmName').textContent = fullName(t);
     $('#tmRole').textContent = t.role;
     $('#tmFacts').innerHTML = t.facts.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('');
   }
