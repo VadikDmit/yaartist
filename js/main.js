@@ -257,7 +257,7 @@
   addrsEl.innerHTML = ADDRS.map(function (s, i) {
     var full = 'Ижевск, ' + s;
     return '<div class="addr' + (i === 0 ? ' is-active' : '') + '" role="button" tabindex="0" data-addr="' + i + '" data-reveal style="--d:' + i * 0.08 + 's">' +
-      '<div class="addr__l"><span class="addr__n">0' + (i + 1) + '</span><div><div class="addr__city">ИЖЕВСК</div><div class="addr__street">' + esc(s) + '</div></div></div>' +
+      '<div class="addr__l"><span class="addr__n">0' + (i + 1) + '</span><div><div class="addr__city">Г.&nbsp;ИЖЕВСК</div><div class="addr__street">' + esc(s) + '</div></div></div>' +
       '<a class="addr__route" target="_blank" rel="noopener" href="https://yandex.ru/maps/?rtext=~' + encodeURIComponent(full) + '&rtt=auto">Маршрут →</a></div>';
   }).join('');
   function selectAddr(i) {
