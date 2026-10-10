@@ -631,6 +631,11 @@ ul { list-style: none; padding: 0; }
 .footer__col > span:first-child { font-size: 13px; font-weight: 700; letter-spacing: .14em; color: var(--yellow); margin-bottom: 4px; }
 .footer__col a { transition: color .2s; }
 .footer__col a:hover { color: var(--yellow); }
+.footer__qr { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 6px; }
+.footer__qr img { width: 120px; height: 120px; border-radius: 12px; background: #fff; transition: transform .25s var(--ease); }
+.footer__qr span { font-size: 14px; line-height: 1.3; color: rgba(255, 255, 255, .72); transition: color .2s; }
+.footer__qr:hover img { transform: scale(1.04); }
+.footer__qr:hover span { color: var(--yellow); }
 .footer__bottom {
   margin-top: clamp(40px, 5vw, 64px); padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .18);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 14px; color: rgba(255, 255, 255, .72);
