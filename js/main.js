@@ -32,11 +32,11 @@
 
   // Коллаж «Жизнь студии»: позиции из макета (поле 1312×740)
   var GALLERY = [
-    { img: 'assets/img/card-intensive.jpg', label: 'интенсивы', left: 0, top: 6, width: 34, aspect: '318/225', rot: -3, z: 2, pos: '50% 0' },
-    { img: 'assets/img/life-rehearsal.jpg', label: 'репетиции', left: 31, top: 0, width: 22, aspect: '3/4', rot: 2, z: 1 },
-    { img: 'assets/img/feed-backstage.jpg', label: 'backstage', left: 51, top: 9, width: 28, aspect: '545/475', rot: -2, z: 3 },
-    { img: 'assets/img/life-class.jpg', label: 'занятия', left: 79, top: 2, width: 21, aspect: '4/5', rot: 3, z: 2 },
-    { img: 'assets/img/life-kids.jpg', label: 'участники студии', left: 5, top: 54, width: 23, aspect: '1/1', rot: 2, z: 2 },
+    { img: 'assets/img/life-intensive.jpg', label: 'интенсивы', left: 0, top: 6, width: 34, aspect: '318/225', rot: -3, z: 2 },
+    { img: 'assets/img/life-backstage.jpg', label: 'backstage', left: 31, top: 0, width: 22, aspect: '3/4', rot: 2, z: 1 },
+    { img: 'assets/img/life-rehearsal.jpg', label: 'репетиции', left: 51, top: 9, width: 28, aspect: '545/475', rot: -2, z: 3 },
+    { img: 'assets/img/life-class.jpg', label: 'занятия', left: 79, top: 2, width: 21, aspect: '1/1', rot: 3, z: 2 },
+    { img: 'assets/img/life-kids.jpg', label: 'участники студии', left: 5, top: 54, width: 23, aspect: '4/3', rot: 2, z: 2 },
     { img: 'assets/img/life-show.jpg', label: 'спектакли', left: 31, top: 60, width: 32, aspect: '16/10', rot: -2, z: 2 }
   ];
 
