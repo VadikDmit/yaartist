@@ -467,7 +467,7 @@ ul { list-style: none; padding: 0; }
 .rating div span:first-child { font-size: 20px; letter-spacing: .12em; }
 .rating div span:last-child { font-size: 14px; font-weight: 600; max-width: 160px; line-height: 1.3; }
 .slider {
-  display: flex; gap: 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none;
+  display: flex; align-items: flex-start; gap: 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none;
   margin-top: clamp(40px, 5vw, 64px); overscroll-behavior-x: contain;
 }
 .slider::-webkit-scrollbar { display: none; }
@@ -478,7 +478,23 @@ ul { list-style: none; padding: 0; }
 }
 .review:nth-child(even) { background: var(--white); border-color: var(--black); }
 .review__q { font-weight: 700; font-size: 96px; line-height: .7; height: 44px; }
-.review p { flex: 1; font-size: 19px; line-height: 1.5; font-weight: 500; }
+.review p {
+  --lines: 6;
+  font-size: 19px; line-height: 1.5; font-weight: 500; white-space: pre-line; overflow-wrap: anywhere;
+  /* По умолчанию — одинаковая высота: ровно N строк */
+  min-height: calc(1.5em * var(--lines)); max-height: calc(1.5em * var(--lines));
+  overflow: hidden; transition: max-height .45s var(--ease);
+}
+.review.is-clamped p { -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
+.review.is-expanded p { -webkit-mask-image: none; mask-image: none; }
+.review__more {
+  align-self: flex-start; margin-top: -10px; padding: 4px 0; background: none; border: 0; cursor: pointer;
+  font-size: 15px; font-weight: 700; color: var(--black);
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--pink);
+  transition: text-underline-offset .2s;
+}
+.review__more:hover { text-underline-offset: 9px; }
+.review__more[hidden] { display: none; }
 .review__author { display: flex; align-items: center; gap: 12px; }
 .review__ava { width: 48px; height: 48px; border-radius: 50%; background: var(--black); color: var(--yellow); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex: none; }
 .review__author div { display: flex; flex-direction: column; gap: 2px; }
@@ -726,6 +742,7 @@ ul { list-style: none; padding: 0; }
 }
 
 @media (max-width: 767px) {
+  .review p { font-size: 17px; }
   .only-mobile { display: block; }
   .hide-mobile { display: none !important; }
   .grid3, .steps { grid-template-columns: minmax(0, 1fr); }

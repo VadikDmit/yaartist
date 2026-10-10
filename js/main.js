@@ -227,6 +227,49 @@
 
   /* ---------- Отзывы ---------- */
   var slider = $('#reviewsSlider');
+
+  // Длинные отзывы свёрнуты до N строк; кнопка раскрывает текст полностью
+  $$('.review', slider).forEach(function (card, i) {
+    var p = card.querySelector('p');
+    p.id = p.id || 'review-text-' + i;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'review__more';
+    btn.setAttribute('aria-controls', p.id);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Показать полностью';
+    btn.hidden = true;
+    p.insertAdjacentElement('afterend', btn);
+    btn.addEventListener('click', function () {
+      var open = !card.classList.contains('is-expanded');
+      card.classList.toggle('is-expanded', open);
+      p.style.maxHeight = open ? p.scrollHeight + 'px' : '';
+      btn.textContent = open ? 'Скрыть' : 'Показать полностью';
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  var collapsedHeight = 0;
+  function measureReviews() {
+    var cards = $$('.review', slider);
+    cards.forEach(function (card) {
+      var p = card.querySelector('p');
+      var btn = card.querySelector('.review__more');
+      if (card.classList.contains('is-expanded')) { p.style.maxHeight = p.scrollHeight + 'px'; return; }
+      var overflow = p.scrollHeight > p.clientHeight + 2;
+      card.classList.toggle('is-clamped', overflow);
+      btn.hidden = !overflow;
+    });
+    // Свёрнутые карточки — одной высоты (по самой высокой свёрнутой)
+    var collapsed = cards.filter(function (c) { return !c.classList.contains('is-expanded'); });
+    if (collapsed.length === cards.length) {
+      cards.forEach(function (c) { c.style.minHeight = ''; });
+      collapsedHeight = Math.max.apply(null, cards.map(function (c) { return c.offsetHeight; }));
+    }
+    cards.forEach(function (c) { c.style.minHeight = collapsedHeight + 'px'; });
+  }
+  measureReviews();
+  window.addEventListener('resize', measureReviews);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureReviews);
   $$('[data-slide]').forEach(function (b) {
     b.addEventListener('click', function () {
       slider.scrollBy({ left: +b.getAttribute('data-slide') * Math.min(440, slider.clientWidth * 0.9), behavior: 'smooth' });
