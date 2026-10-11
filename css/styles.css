@@ -158,7 +158,8 @@ ul { list-style: none; padding: 0; }
 }
 .nav a:hover, .nav a.is-active { text-decoration-color: var(--pink); }
 .header__right { display: flex; align-items: center; gap: 20px; flex: none; }
-.header__phone { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+.header__phone { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+.header__phone-icon { flex: none; width: 18px; height: 18px; }
 .burger {
   display: none; width: 48px; height: 48px; border-radius: 14px; border: 1.5px solid var(--black);
   background: transparent; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer; padding: 0;
@@ -191,7 +192,8 @@ ul { list-style: none; padding: 0; }
 .menu.is-open .menu__nav a:nth-child(5) { transition-delay: .16s; }
 .menu.is-open .menu__nav a:nth-child(6) { transition-delay: .2s; }
 .menu__bottom { margin-top: auto; padding-top: 40px; display: flex; flex-direction: column; gap: 12px; }
-.menu__bottom .menu__phone { font-size: 36px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.menu__bottom .menu__phone { display: inline-flex; align-items: center; gap: 12px; font-size: 36px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.menu__phone-icon { flex: none; width: 28px; height: 28px; }
 .menu__bottom .btn { height: 60px; font-size: 17px; }
 
 /* ==========================================================================
