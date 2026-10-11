@@ -219,7 +219,9 @@
   var strip = $('#strip');
   var itemImg = function (g) { return '<div class="collage__img"><img src="' + g.img + '" alt="' + esc(g.label) + '" loading="lazy"' + (g.pos ? ' style="object-position:' + g.pos + '"' : '') + '></div><span class="tag">' + esc(g.label) + '</span>'; };
   collage.insertAdjacentHTML('afterbegin', GALLERY.map(function (g, i) {
-    return '<div class="collage__item" data-reveal="scale" style="--d:' + i * 0.07 + 's;left:' + g.left + '%;top:' + g.top + '%;width:' + g.width + '%;aspect-ratio:' + g.aspect + ';--rot:' + g.rot + 'deg;z-index:' + g.z + '">' + itemImg(g) + '</div>';
+    // Внешний слой — наклон и подъём при наведении, внутренний — появление при прокрутке
+    return '<div class="collage__item" style="left:' + g.left + '%;top:' + g.top + '%;width:' + g.width + '%;aspect-ratio:' + g.aspect + ';--rot:' + g.rot + 'deg;--z:' + g.z + '">' +
+      '<div class="collage__card" data-reveal="scale" style="--d:' + i * 0.07 + 's">' + itemImg(g) + '</div></div>';
   }).join(''));
   strip.innerHTML = GALLERY.map(function (g) {
     return '<div class="strip__item" style="aspect-ratio:' + g.aspect + '">' + itemImg(g) + '</div>';
