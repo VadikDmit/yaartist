@@ -2,9 +2,8 @@
 (function () {
   'use strict';
 
-  // Заявки уходят на ya@yaartist.com через FormSubmit (formsubmit.co).
-  // При первой заявке FormSubmit пришлёт на этот адрес письмо для подтверждения — по ссылке из него форма активируется.
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/ya@yaartist.com';
+  // Заявки уходят на серверную функцию сайта (api/signup.js), она отправляет письмо через почту Рег.ру.
+  var FORM_ENDPOINT = '/api/signup';
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -156,13 +155,11 @@
     btn.disabled = true;
     $('#formError').classList.remove('is-shown');
     var payload = {
-      'Имя': form.name.value.trim(),
-      'Возраст ребёнка': form.age.value.trim() || '—',
-      'Телефон': form.phone.value.trim(),
-      'Группа': form.group.value || 'Не выбрана',
-      _subject: 'Заявка на пробное занятие — ЯАртист',
-      _template: 'table',
-      _captcha: 'false'
+      name: form.name.value.trim(),
+      age: form.age.value.trim(),
+      phone: form.phone.value.trim(),
+      group: form.group.value,
+      _honey: form._honey.value
     };
     fetch(FORM_ENDPOINT, {
       method: 'POST',

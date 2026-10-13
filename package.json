@@ -1,0 +1,9 @@
+{
+  "name": "yaartist-site",
+  "private": true,
+  "description": "Сайт театральной студии ЯАртист. Статика + функция /api/signup для отправки заявок на почту.",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
