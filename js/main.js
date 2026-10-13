@@ -2,9 +2,9 @@
 (function () {
   'use strict';
 
-  // Куда отправлять заявки (например, Formspree: 'https://formspree.io/f/xxxxxxx').
-  // Пока пусто — форма показывает экран успеха без отправки.
-  var FORM_ENDPOINT = '';
+  // Заявки уходят на ya@yaartist.com через FormSubmit (formsubmit.co).
+  // При первой заявке FormSubmit пришлёт на этот адрес письмо для подтверждения — по ссылке из него форма активируется.
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/ya@yaartist.com';
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -151,10 +151,26 @@
     if (!ok) return;
     var btn = form.querySelector('[type="submit"]');
     var done = function () { formState.hidden = true; sentState.hidden = false; form.reset(); btn.disabled = false; sentState.querySelector('button').focus(); };
+    if (form._honey.value) { done(); return; } // бот заполнил скрытое поле — молча «принимаем»
     if (!FORM_ENDPOINT) { done(); return; }
     btn.disabled = true;
-    fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); done(); })
+    $('#formError').classList.remove('is-shown');
+    var payload = {
+      'Имя': form.name.value.trim(),
+      'Возраст ребёнка': form.age.value.trim() || '—',
+      'Телефон': form.phone.value.trim(),
+      'Группа': form.group.value || 'Не выбрана',
+      _subject: 'Заявка на пробное занятие — ЯАртист',
+      _template: 'table',
+      _captcha: 'false'
+    };
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status); }); })
+      .then(done)
       .catch(function () { btn.disabled = false; $('#formError').classList.add('is-shown'); });
   });
   $$('input', form).forEach(function (i) { i.addEventListener('input', function () { i.classList.remove('is-invalid'); }); });
