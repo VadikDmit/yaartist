@@ -1,4 +1,4 @@
-# Выкладка сайта на хостинг Рег.ру по FTP при каждом push в main.
+# Выкладка сайта на хостинг Рег.ру по FTP (сейчас только ручной запуск — см. ниже).
 #
 # Секреты (GitHub → Settings → Secrets and variables → Actions):
 #   FTP_SERVER   — адрес FTP-сервера хостинга (например, 31.31.197.119)
@@ -10,9 +10,10 @@
 
 name: Deploy to Reg.ru
 
+# Автозапуск при push выключен: хостинг Рег.ру не пускает FTP-подключения из-за рубежа
+# (серверы GitHub в США получают ECONNREFUSED). Выкладка идёт с Mac через deploy.sh.
+# Ручной запуск оставлен на случай, если Рег.ру откроет доступ.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
