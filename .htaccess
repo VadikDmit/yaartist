@@ -1,0 +1,48 @@
+# Настройки сайта на хостинге Рег.ру (Apache)
+
+AddDefaultCharset UTF-8
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http → https (работает после выпуска SSL-сертификата в ispmanager).
+  # Проверку Let's Encrypt (/.well-known/) не перенаправляем, иначе сертификат не выпустится.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://yaartist.com%{REQUEST_URI} [L,R=301]
+
+  # www.yaartist.com → yaartist.com
+  RewriteCond %{HTTP_HOST} ^www\.yaartist\.com$ [NC]
+  RewriteRule ^ https://yaartist.com%{REQUEST_URI} [L,R=301]
+
+  # Форма заявок: тот же адрес, что и на Vercel
+  RewriteRule ^api/signup/?$ signup.php [L]
+
+  # Служебные файлы не отдаём
+  RewriteRule ^(package(-lock)?\.json|api/.*\.js|\.git.*|\.vercelignore)$ - [F,L]
+</IfModule>
+
+# Кеширование статики
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Сжатие текстовых файлов
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json text/plain application/xml
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
