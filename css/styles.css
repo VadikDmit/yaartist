@@ -664,10 +664,32 @@ ul { list-style: none; padding: 0; }
 .footer__bottom > :nth-child(3) { justify-self: end; }
 .footer__bottom a { text-decoration: underline; text-underline-offset: 4px; }
 .footer__bottom a:hover { color: var(--white); }
+.footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; }
 .footer__bottom .footer__dev { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
 .footer__dev span { text-decoration: underline; text-underline-offset: 4px; }
 .footer__dev img { height: 17.6px; width: auto; opacity: .85; transition: opacity .2s, transform .25s var(--ease); }
 .footer__dev:hover img { opacity: 1; transform: scale(1.06); }
+
+/* ==========================================================================
+   Страницы документов (/privacy-policy, /consent)
+   ========================================================================== */
+.legal { padding: clamp(130px, 13vw, 170px) 0 var(--section-y); }
+.legal__doc { max-width: 780px; }
+.legal__doc .eyebrow { margin-bottom: 20px; }
+.legal__doc h1 { font-weight: 600; font-size: clamp(32px, 4.4vw, 56px); line-height: 1; letter-spacing: -0.04em; margin-bottom: 18px; text-wrap: balance; }
+.legal__date { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 14px; border-radius: 999px; background: var(--yellow); font-size: 14px; font-weight: 600; margin-bottom: 28px; }
+.legal__doc h2 { font-weight: 600; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; letter-spacing: -0.02em; margin: 44px 0 14px; }
+.legal__doc p, .legal__doc li { font-size: 17px; line-height: 1.6; }
+.legal__doc p { margin: 0 0 14px; }
+.legal__doc ul { margin: 0 0 14px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.legal__doc li { position: relative; padding-left: 26px; }
+.legal__doc li::before { content: ''; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; background: var(--pink); clip-path: var(--star); }
+.legal__doc a { text-decoration: underline; text-decoration-color: var(--pink); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.legal__operator { margin: 0 0 14px; padding: 22px 24px; border-radius: 20px; border: 1.5px solid var(--line); background: #fffde6; }
+.legal__operator p { margin: 0; }
+.legal__operator p + p { margin-top: 4px; }
+.legal__related { margin-top: 48px; padding-top: 24px; border-top: 1.5px solid var(--line); font-size: 16px; }
+.legal__back { min-height: 48px; padding: 0 20px; }
 
 /* ==========================================================================
    Модальные окна
@@ -710,7 +732,7 @@ ul { list-style: none; padding: 0; }
 .smodal .modal__box { width: min(560px, 100%); background: var(--yellow); padding: clamp(28px, 4vw, 48px); }
 .smodal .modal__close { background: transparent; }
 .smodal .modal__close:hover { background: var(--white); }
-.smodal__eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .14em; margin-bottom: 16px; }
+.smodal__eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .14em; margin: 0 56px 16px 0; }
 .smodal h3 { margin: 0 56px 8px 0; font-weight: 500; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; letter-spacing: -0.04em; }
 .smodal__try { display: inline-block; font-size: 34px; color: var(--pink); transform: rotate(-4deg); line-height: 1.2; }
 .form { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
@@ -732,6 +754,24 @@ ul { list-style: none; padding: 0; }
 .form__note { margin: 4px 0 0; font-size: 13px; line-height: 1.4; }
 .form__note a { text-decoration: underline; text-underline-offset: 3px; }
 .form__honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+/* Чекбокс согласия: пустой по умолчанию, обязательный */
+.consent { display: flex; align-items: flex-start; gap: 12px; margin: 4px 0 0; font-size: 14px; line-height: 1.45; cursor: pointer; }
+.form .consent input[type="checkbox"] {
+  -webkit-appearance: none; appearance: none; flex: none; width: 22px; height: 22px; padding: 0; margin: 0;
+  border: 1.5px solid var(--black); border-radius: 6px; background: var(--white); cursor: pointer;
+  display: grid; place-content: center; transition: background-color .15s, box-shadow .15s;
+}
+.form .consent input[type="checkbox"]::after {
+  content: ''; width: 11px; height: 6px; border-left: 2.5px solid var(--white); border-bottom: 2.5px solid var(--white);
+  transform: translateY(-1px) rotate(-45deg) scale(0); transition: transform .15s var(--ease);
+}
+.form .consent input[type="checkbox"]:checked { background: var(--black); }
+.form .consent input[type="checkbox"]:checked::after { transform: translateY(-1px) rotate(-45deg) scale(1); }
+.form .consent input[type="checkbox"]:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--pink); }
+.form .consent.is-invalid input[type="checkbox"] { box-shadow: 0 0 0 3px var(--pink); }
+.consent a { text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.consent__error { display: none; margin: -4px 0 0 34px; font-size: 13px; font-weight: 600; color: #b0006e; }
+.consent__error.is-shown { display: block; }
 .form__error { font-size: 14px; font-weight: 600; color: #b0006e; display: none; }
 .form__error.is-shown { display: block; }
 .smodal__sent { display: flex; flex-direction: column; gap: 18px; padding: 12px 0; }
@@ -777,6 +817,9 @@ ul { list-style: none; padding: 0; }
   .header.is-scrolled { background: var(--yellow); }
   .footer__bottom { grid-template-columns: 1fr; justify-items: start; }
   .footer__bottom > :nth-child(2), .footer__bottom > :nth-child(3) { justify-self: start; }
+  .footer__legal { justify-content: flex-start; flex-direction: column; gap: 10px; }
+  .legal__doc p, .legal__doc li { font-size: 16px; }
+  .legal__operator { padding: 18px; }
   .review p { font-size: 17px; }
   .only-mobile { display: block; }
   .hide-mobile { display: none !important; }

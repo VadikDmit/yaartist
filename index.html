@@ -566,7 +566,10 @@
     </div>
     <div class="footer__bottom">
       <span>© ЯАртист, <span id="year">2026</span></span>
-      <a href="privacy.html">Политика конфиденциальности</a>
+      <div class="footer__legal">
+        <a href="privacy-policy">Политика конфиденциальности</a>
+        <a href="consent">Согласие на обработку персональных данных</a>
+      </div>
       <a href="https://v-dmitriev.ru/" target="_blank" rel="noopener" class="footer__dev">
         <span>Разработка сайта</span>
         <img src="assets/img/logo-vd.svg" width="28" height="18" alt="V. Dmitriev">
@@ -604,8 +607,10 @@
       <h3 id="suTitle">Первое занятие — бесплатно</h3>
       <span class="smodal__try script">попробуй!</span>
       <form class="form" id="signupForm" novalidate>
-        <label class="sr-only" for="fName">Имя</label>
-        <input id="fName" name="name" placeholder="Имя" autocomplete="name" required>
+        <label class="sr-only" for="fName">Имя родителя</label>
+        <input id="fName" name="name" placeholder="Имя родителя" autocomplete="name" required>
+        <label class="sr-only" for="fChild">Имя ребёнка</label>
+        <input id="fChild" name="child" placeholder="Имя ребёнка" autocomplete="off">
         <label class="sr-only" for="fAge">Возраст ребёнка</label>
         <input id="fAge" name="age" placeholder="Возраст ребёнка" inputmode="numeric">
         <label class="sr-only" for="fPhone">Телефон</label>
@@ -623,8 +628,13 @@
           <option value="Пока не знаю">Пока не знаю — помогите выбрать</option>
         </select>
         <p class="form__error" id="formError" role="alert">Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в VK.</p>
+        <!-- Согласие: версия текста фиксируется в письме с заявкой (CONSENT_VERSION в js/main.js и api/signup.js) -->
+        <label class="consent" id="consentField">
+          <input type="checkbox" name="consent" id="fConsent" value="yes" required aria-describedby="consentError">
+          <span>Нажимая «Записаться», я соглашаюсь с <a href="privacy-policy" target="_blank" rel="noopener">политикой конфиденциальности</a>, а также на <a href="consent" target="_blank" rel="noopener">обработку персональных данных</a></span>
+        </label>
+        <p class="consent__error" id="consentError" role="alert">Чтобы записаться, отметьте согласие с политикой конфиденциальности и на обработку персональных данных.</p>
         <button type="submit" class="btn btn--black">Записаться</button>
-        <p class="form__note">Нажимая «Записаться», вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
       </form>
     </div>
     <div class="smodal__sent" data-state="sent" hidden>

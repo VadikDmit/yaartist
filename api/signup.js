@@ -11,6 +11,10 @@
 
 const nodemailer = require('nodemailer');
 
+// Действующая редакция согласия на обработку ПД (страница /consent). Меняется вместе с текстом документа.
+const CONSENT_VERSION = '2026-10-15';
+const CONSENT_URL = 'https://yaartist.com/consent';
+
 const clean = (v, max) => String(v == null ? '' : v).replace(/[\r\n\t]+/g, ' ').trim().slice(0, max);
 const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -32,6 +36,7 @@ module.exports = async function handler(req, res) {
 
   const fields = {
     name: clean(body.name, 100),
+    child: clean(body.child, 100),
     age: clean(body.age, 20),
     phone: clean(body.phone, 30),
     group: clean(body.group, 100)
@@ -40,6 +45,18 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ success: false, message: 'Укажите имя и телефон' });
   }
 
+  // Без согласия на обработку ПД заявку не принимаем
+  if (body.consent !== true) {
+    return res.status(400).json({ success: false, message: 'Необходимо согласие на обработку персональных данных' });
+  }
+  // Момент получения согласия — время сервера при приёме заявки (не время из браузера)
+  const consentAt = new Date();
+  const consentAtLocal = consentAt.toLocaleString('ru-RU', { timeZone: 'Europe/Samara', dateStyle: 'long', timeStyle: 'medium' });
+  const sentVersion = clean(body.consentVersion, 20);
+  const consentVersionNote = sentVersion === CONSENT_VERSION
+    ? `редакция от ${CONSENT_VERSION} (${CONSENT_URL})`
+    : `редакция на сайте ${CONSENT_VERSION} (${CONSENT_URL}); в форме передано: ${sentVersion || 'не указано'}`;
+
   const { SMTP_USER, SMTP_PASS } = process.env;
   if (!SMTP_USER || !SMTP_PASS) {
     console.error('signup: SMTP_USER / SMTP_PASS не заданы');
@@ -47,10 +64,14 @@ module.exports = async function handler(req, res) {
   }
 
   const rows = [
-    ['Имя', fields.name],
+    ['Имя родителя', fields.name],
+    ['Имя ребёнка', fields.child || '—'],
     ['Возраст ребёнка', fields.age || '—'],
     ['Телефон', fields.phone],
-    ['Группа', fields.group || 'Не выбрана']
+    ['Группа', fields.group || 'Не выбрана'],
+    ['Согласие на обработку ПД', 'Получено: отмечен чекбокс в форме записи'],
+    ['Дата и время согласия', `${consentAtLocal} (Ижевск, UTC+4) · ${consentAt.toISOString()}`],
+    ['Версия текста согласия', consentVersionNote]
   ];
   const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n');
   const html =

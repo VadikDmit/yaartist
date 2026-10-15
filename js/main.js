@@ -4,6 +4,8 @@
 
   // Заявки уходят на серверную функцию сайта (api/signup.js), она отправляет письмо через почту Рег.ру.
   var FORM_ENDPOINT = '/api/signup';
+  // Версия текста согласия на обработку ПД (страница /consent). Меняется вместе с текстом документа.
+  var CONSENT_VERSION = '2026-10-15';
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -135,6 +137,8 @@
     if (menu.classList.contains('is-open')) closeLayer(menu);
     formState.hidden = false; sentState.hidden = true;
     $('#formError').classList.remove('is-shown');
+    $('#consentField').classList.remove('is-invalid');
+    $('#consentError').classList.remove('is-shown');
     form.group.value = a.getAttribute('data-group') || '';
     openLayer(signup);
   });
@@ -148,6 +152,13 @@
       if (bad && ok) { inp.focus(); ok = false; }
     });
     if (!ok) return;
+    // Без отметки согласия заявку не отправляем
+    if (!form.consent.checked) {
+      $('#consentField').classList.add('is-invalid');
+      $('#consentError').classList.add('is-shown');
+      form.consent.focus();
+      return;
+    }
     var btn = form.querySelector('[type="submit"]');
     var done = function () { formState.hidden = true; sentState.hidden = false; form.reset(); btn.disabled = false; sentState.querySelector('button').focus(); };
     if (form._honey.value) { done(); return; } // бот заполнил скрытое поле — молча «принимаем»
@@ -156,9 +167,12 @@
     $('#formError').classList.remove('is-shown');
     var payload = {
       name: form.name.value.trim(),
+      child: form.child.value.trim(),
       age: form.age.value.trim(),
       phone: form.phone.value.trim(),
       group: form.group.value,
+      consent: true,
+      consentVersion: CONSENT_VERSION,
       _honey: form._honey.value
     };
     fetch(FORM_ENDPOINT, {
@@ -171,6 +185,11 @@
       .catch(function () { btn.disabled = false; $('#formError').classList.add('is-shown'); });
   });
   $$('input', form).forEach(function (i) { i.addEventListener('input', function () { i.classList.remove('is-invalid'); }); });
+  form.consent.addEventListener('change', function () {
+    if (!this.checked) return;
+    $('#consentField').classList.remove('is-invalid');
+    $('#consentError').classList.remove('is-shown');
+  });
 
   // Маска телефона
   form.phone.addEventListener('input', function () {

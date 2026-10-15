@@ -5,6 +5,9 @@
 
 const MAIL_TO   = 'ya@yaartist.com';
 const MAIL_FROM = 'ya@yaartist.com';
+// Действующая редакция согласия на обработку ПД (страница /consent)
+const CONSENT_VERSION = '2026-10-15';
+const CONSENT_URL = 'https://yaartist.com/consent';
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
@@ -34,6 +37,7 @@ if (clean($body['_honey'] ?? '', 200) !== '') reply(200, ['success' => true]);
 
 $f = [
     'name'  => clean($body['name']  ?? '', 100),
+    'child' => clean($body['child'] ?? '', 100),
     'age'   => clean($body['age']   ?? '', 20),
     'phone' => clean($body['phone'] ?? '', 30),
     'group' => clean($body['group'] ?? '', 100),
@@ -41,6 +45,16 @@ $f = [
 if ($f['name'] === '' || strlen(preg_replace('/\D/', '', $f['phone'])) < 10) {
     reply(400, ['success' => false, 'message' => 'Укажите имя и телефон']);
 }
+
+// Без согласия на обработку ПД заявку не принимаем; время — серверное, при приёме заявки
+if (($body['consent'] ?? null) !== true) {
+    reply(400, ['success' => false, 'message' => 'Необходимо согласие на обработку персональных данных']);
+}
+$consentAt = new DateTimeImmutable('now', new DateTimeZone('Europe/Samara'));
+$sentVersion = clean($body['consentVersion'] ?? '', 20);
+$consentVersionNote = $sentVersion === CONSENT_VERSION
+    ? 'редакция от ' . CONSENT_VERSION . ' (' . CONSENT_URL . ')'
+    : 'редакция на сайте ' . CONSENT_VERSION . ' (' . CONSENT_URL . '); в форме передано: ' . ($sentVersion !== '' ? $sentVersion : 'не указано');
 
 // Простая защита от частых отправок: не больше 5 заявок с одного IP за 10 минут
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
@@ -55,10 +69,14 @@ $hits[] = $now;
 @file_put_contents($rateFile, implode(',', $hits));
 
 $rows = [
-    'Имя'             => $f['name'],
+    'Имя родителя'    => $f['name'],
+    'Имя ребёнка'     => $f['child'] !== '' ? $f['child'] : '—',
     'Возраст ребёнка' => $f['age'] !== '' ? $f['age'] : '—',
     'Телефон'         => $f['phone'],
     'Группа'          => $f['group'] !== '' ? $f['group'] : 'Не выбрана',
+    'Согласие на обработку ПД' => 'Получено: отмечен чекбокс в форме записи',
+    'Дата и время согласия'    => $consentAt->format('d.m.Y H:i:s') . ' (Ижевск, UTC+4) · ' . $consentAt->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d\\TH:i:s\\Z'),
+    'Версия текста согласия'   => $consentVersionNote,
 ];
 $e = fn($s) => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 
