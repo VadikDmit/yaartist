@@ -220,10 +220,10 @@ ul { list-style: none; padding: 0; }
 .hero__free.is-wrapped { margin-left: 0; transform: rotate(-6deg); }
 .hero__free.is-wrapped svg { transform: scaleY(-1) translateY(6px); }
 .hero__media { flex: 1.15 1 520px; min-width: 0; position: relative; z-index: 1; margin: -4% 0 -6% 0; }
-.hero__img { position: relative; width: 126%; left: 50%; transform: translateX(-50%); }
+.hero__img { position: relative; width: 112%; left: 54%; transform: translateX(-50%); }
 .hero__img img { position: relative; width: 100%; height: auto; }
 .hero__ring {
-  position: absolute; left: -2%; right: -1%; top: 14%; bottom: 4%;
+  position: absolute; left: -5%; right: -4%; top: 16%; bottom: -5%;
   border: 2px solid var(--pink); border-top-color: transparent;
   border-radius: 50% 50% 46% 54% / 56% 48% 52% 44%; transform: rotate(-10deg);
   animation: ya-sway 9s ease-in-out infinite;
@@ -794,7 +794,7 @@ ul { list-style: none; padding: 0; }
 @media (max-width: 1099px) {
   .nav, .header__phone { display: none; }
   .burger { display: flex; }
-  .hero__img { width: 112%; }
+  .hero__img { width: 104%; }
   .teachers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -830,7 +830,7 @@ ul { list-style: none; padding: 0; }
   .hero__free { margin-left: 0; transform: rotate(-6deg); }
   .hero__free svg { transform: scaleY(-1) translateY(6px); }
   .hero__media { margin: 0; }
-  .hero__img { width: 118%; }
+  .hero__img { width: 112%; left: 50%; }
 
   .ages { row-gap: 48px; }
   .features { gap: 16px; }
